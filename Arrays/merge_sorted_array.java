@@ -1,4 +1,5 @@
-class Solution {
+package Arrays;
+class merge_sorted_array  {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         
         int i = m - 1;        // last element of nums1
