@@ -19,9 +19,10 @@ class Solution {
 //if the mid element is on the even index and the next odd index also contains that the same element , then the single element is on the right side (low = mid+2)
 // and if they are not same which means the single element is on the left side (high=mid)
 
+package Binary_Search;
+
 class Solution {
     public int singleNonDuplicate(int[] nums) {
-        int n = nums.length;
         int low = 0;
         int high = nums.length-1;
 
