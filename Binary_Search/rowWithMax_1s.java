@@ -23,4 +23,40 @@
     }
 }*/
 
+//better solution by using binary search on each rows with time complexity = O(n log m)
+/*
+class Solution {
+    public int rowWithMax1s(int[][] mat) {
+       int n = mat.length;
+       int m = mat[0].length;
+
+       int maxRow = -1;
+       int maxOnes = 0;
+
+       for(int i=0; i<n; i++){
+        int low = 0, high = m-1;
+        int firstOne = m;
+
+        while(low<=high){
+            int mid = low + (high-low)/2;
+            if(mat[i][mid]==1){
+                firstOne = mid;
+                high = mid-1;
+            }
+            else{
+                low = mid+1;
+            }
+        }
+
+        int ones = m - firstOne;
+        if(ones > maxOnes){
+            maxOnes = ones;
+            maxRow = i;
+        }
+       }
+       return maxRow;
+    }
+}
+ */
+
 package Binary_Search;
