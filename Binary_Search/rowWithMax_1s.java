@@ -59,4 +59,23 @@ class Solution {
 }
  */
 
+//optimal solution with time complexity = O(n+m).
+
 package Binary_Search;
+
+class Solution {
+    public int rowWithMax1s(int[][] mat) {
+       int n = mat.length;
+       int m = mat[0].length;
+       int rowIndex = -1;
+       int j = m-1;
+
+       for(int i=0; i<n; i++){
+        while(j>=0 && mat[i][j]==1){
+            rowIndex = i;
+            j--;
+        }
+       }
+       return rowIndex;
+    }
+}
