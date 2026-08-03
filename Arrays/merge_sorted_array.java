@@ -1,4 +1,5 @@
-package Arrays;
+import java.util.Arrays;
+
 class merge_sorted_array  {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
         

@@ -1,4 +1,3 @@
-package Arrays;
 
 class Solution {
     public void moveZeroes(int[] nums) {
