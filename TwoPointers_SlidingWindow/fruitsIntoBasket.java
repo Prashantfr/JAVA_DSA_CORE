@@ -1,4 +1,5 @@
 //problem link : https://leetcode.com/problems/fruit-into-baskets/
+//problem name : Longest subarray with atmost 2 distinct numbers/(fruits into basket).
 //brute force solution with time complexity of O(n^2) and space complexity O(1).
 
 package TwoPointers_SlidingWindow;

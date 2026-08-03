@@ -1,4 +1,5 @@
 //problem link : https://leetcode.com/problems/max-consecutive-ones-iii/
+//problem name : Can flip atmost k zeroes / maximum consecutive ones.
 //brute force solution with a time complexity => O(n²) and space complexity => O(1).
 
 package TwoPointers_SlidingWindow;
