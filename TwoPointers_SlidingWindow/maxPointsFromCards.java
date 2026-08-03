@@ -26,7 +26,7 @@ class Solution {
 }*/
 
 //optimal solution with time complexity => O(k) and space complexity of O(1).
-package Binary_Search;
+package TwoPointers_SlidingWindow;
 
 class Solution {
     public int maxScore(int[] cardPoints, int k) {

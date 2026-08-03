@@ -2,7 +2,7 @@
 //brute force solution with a time complexity => O(n²) and space complexity => O(1).
 
 package TwoPointers_SlidingWindow;
-class Solution {
+/*class Solution {
     public int longestOnes(int[] nums, int k) {
         int n = nums.length;
         int maxLen = 0;
@@ -20,6 +20,33 @@ class Solution {
                     break;
                 }
             }
+        }
+        return maxLen;
+    }
+}
+    */
+
+//optimal solution with a time complexity => O(n) and space complexity => O(1).
+
+class Solution {
+    public int longestOnes(int[] nums, int k) {
+        int left = 0;
+        int n = nums.length;
+        int maxLen = 0;
+        int zeroCount = 0;
+
+        for(int right=left; right<n; right++){
+            if(nums[right]==0){
+                zeroCount++;
+            }
+            while(zeroCount>k){
+                if(nums[left]==0){
+                    zeroCount--;
+                }
+                left++;
+            }
+            int len = right-left+1;
+            maxLen = Math.max(len,maxLen);
         }
         return maxLen;
     }
