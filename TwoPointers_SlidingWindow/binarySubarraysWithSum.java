@@ -4,7 +4,7 @@
 //brute force solution with time complexity of O(n^2) and space complexity O(1).
 package TwoPointers_SlidingWindow;
 
-class Solution {
+/*class Solution {
     public int numSubarraysWithSum(int[] nums, int goal) {
         int n = nums.length;
         int count = 0;
@@ -19,6 +19,31 @@ class Solution {
                     break;
                 }
             }
+        }
+        return count;
+    }
+}*/
+
+//optimal solution with time complexity of O(n) and space complexity O(1).
+class Solution {
+    public int numSubarraysWithSum(int[] nums, int goal){
+        return atMost(nums, goal) - atMost(nums, goal-1);
+      }
+
+      private int atMost(int[] nums, int goal){
+        if(goal<0) return 0;
+        
+        int n = nums.length;
+        int left = 0;
+        int count = 0;
+        int sum = 0;
+        for(int right=0; right<n; right++){
+            sum += nums[right];
+            while(sum > goal){
+                sum -= nums[left];
+                left++;
+            }
+            count += right-left+1;
         }
         return count;
     }
