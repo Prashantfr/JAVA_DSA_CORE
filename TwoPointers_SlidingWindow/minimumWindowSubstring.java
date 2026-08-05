@@ -4,7 +4,7 @@
 //brute force solution with time complexity of O(n^2.k) and space complexity O(1).
 package TwoPointers_SlidingWindow;
 import java.util.HashMap;
-class Solution {
+/*class Solution {
     public String minWindow(String s, String t) {
         int n = s.length();
         int m = t.length();
@@ -42,5 +42,54 @@ class Solution {
             }
         }
         return true;
+    }
+}*/
+
+//optimal solution with time complexity of O(n) and space complexity O(1).
+class Solution {
+    public String minWindow(String s, String t) {
+        int n = s.length();
+        int m = t.length();
+        HashMap<Character, Integer> map = new HashMap<>();
+        for(int i=0; i<m; i++){
+            char c = t.charAt(i);
+            map.put(c, map.getOrDefault(c,0)+1);
+        }
+        int left = 0 , right = 0;
+        int count = 0;
+        int minLen = Integer.MAX_VALUE;
+        int start = 0;
+
+        while (right < n){
+            char ch = s.charAt(right);
+            if(map.containsKey(ch)){
+                if(map.get(ch)>0){
+                    count ++;
+                }
+                map.put(ch, map.get(ch)-1);
+            }
+
+            while (count == t.length()){
+                if(right-left+1 < minLen){
+                    minLen = right-left+1;
+                    start = left;
+                }
+                char leftChar = s.charAt(left);
+                if(map.containsKey(leftChar)){
+                    map.put(leftChar, map.get(leftChar)+1);
+
+                    if(map.get(leftChar)>0){
+                        count--;
+                    }
+                }
+                left++;
+            }
+            right++;
+        }
+        if(minLen == Integer.MAX_VALUE)
+         return "";
+        else{
+           return s.substring(start, start+minLen);
+        }
     }
 }
