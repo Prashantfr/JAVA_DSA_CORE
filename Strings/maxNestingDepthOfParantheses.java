@@ -5,8 +5,7 @@
 
 
 package Strings;
-
-class Solution {
+/*class Solution {
     public int maxDepth(String s) {
         int n = s.length();
         int maxDepth = 0;
@@ -32,5 +31,26 @@ class Solution {
 
         return maxDepth;
     }
-}
+}*/
 
+//optimal solution with time complexity of O(n) and space complexity O(1).
+
+class Solution {
+    public int maxDepth(String s) {
+        int n = s.length();
+        int maxDepth = 0;
+        int current = 0;
+
+        for(int i=0; i<n; i++){
+            char c = s.charAt(i);
+            if( c == '('){
+                current++;
+                maxDepth = Math.max(current, maxDepth);
+            }
+            else if(c == ')'){
+                current--;
+            }
+        }
+        return maxDepth;
+    }
+}
