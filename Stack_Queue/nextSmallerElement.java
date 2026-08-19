@@ -12,7 +12,7 @@ class Solution {
         int[] result = new int[n];
         Stack<Integer> stack = new Stack<>();
 
-        for(int i=arr.length-1; i>=0; i--){
+        for(int i=n-1; i>=0; i--){
             while(!stack.isEmpty() && stack.peek() >= arr[i]){
                 stack.pop();
             }
