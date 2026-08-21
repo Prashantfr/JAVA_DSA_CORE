@@ -42,3 +42,27 @@ package Stack_Queue;
         return i == s.length() ? "0" : s.substring(i);
     }
 }*/
+
+//optimal solution with time complexity of O(n) and space complexity O(n).
+class Solution {
+    public String removeKdigits(String num, int k) {
+        StringBuilder stack = new StringBuilder();
+        for(char ch : num.toCharArray()){
+            while( k > 0 && stack.length() > 0 && stack.charAt(stack.length()-1) > ch){
+                stack.deleteCharAt(stack.length() - 1);
+                k--;
+            }
+            stack.append(ch);
+        }
+
+        while( k > 0 && stack.length() > 0){
+            stack.deleteCharAt(stack.length()-1);
+            k--;
+        }
+
+        int i=0;
+        while(i < stack.length() && stack.charAt(i) == '0') i++;
+        String result = stack.substring(i);
+        return result.length() == 0 ? "0" : result;
+    }
+}
