@@ -5,7 +5,7 @@
 
 
 package Linked_List;
-import java.util.*;
+//import java.util.*;
 
 /*public class DetectLoopInLL {
     public boolean hasCycle(ListNode head) {

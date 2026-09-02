@@ -4,7 +4,7 @@
 //brute force solution with time complexity of O(N) and space complexity O(n) (extra space).
 
 package Linked_List;
-import java.util.*;
+//import java.util.*;
 /*class Solution {
     public ListNode reverseList(ListNode head) {
         Stack<Integer> stack = new Stack<>();

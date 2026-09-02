@@ -4,7 +4,7 @@
 //brute force solution with time complexity of O(N)(two passes) and space complexity O(1).
 
 package Linked_List;
-import java.util.*;
+//import java.util.*;
 
 /*public class MiddleLinkedList {
 
@@ -49,7 +49,7 @@ class Solution {
         this.next = null;
     }
   }
-  
+
     public ListNode middleNode(ListNode head) {
         ListNode slow = head;
         ListNode fast = head;
