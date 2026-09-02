@@ -7,7 +7,7 @@
 package Linked_List;
 import java.util.*;
 
-public class DetectLoopInLL {
+/*public class DetectLoopInLL {
     public boolean hasCycle(ListNode head) {
         HashSet<ListNode> set = new HashSet<>();
         ListNode temp = head;
@@ -18,6 +18,28 @@ public class DetectLoopInLL {
             }
             set.add(temp);
             temp = temp.next;
+        }
+        return false;
+    }
+}*/
+
+//optimal solution with time complexity of O(N) and space complexity O(1).
+public class DetectLoopInLL {
+    public boolean hasCycle(ListNode head) {
+        if( head==null || head.next==null ){
+            return false;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while( fast != null && fast.next != null ){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                return true;
+            }
         }
         return false;
     }
