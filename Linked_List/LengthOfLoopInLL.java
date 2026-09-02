@@ -5,7 +5,7 @@
 
 package Linked_List;
 
-import java.util.*;
+/*import java.util.*;
 
 class Solution {
     public int lengthOfLoop(ListNode head) {
@@ -25,4 +25,31 @@ class Solution {
 
         return 0; // no loop
     }
-}
+}*/
+
+//optimal solution with time complexity of O(n) and space complexity O(1).
+ class Solution {
+     public int findLengthOfLoop(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while( fast!=null && fast.next!=null ){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return CountLoopLength(slow);
+            }
+        }
+        return 0;
+     }
+
+     private int CountLoopLength(ListNode meetingpoint){
+        int count = 1;
+        ListNode temp = meetingpoint.next;
+        while( temp!=meetingpoint ){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+     }
+ }
