@@ -5,9 +5,9 @@
 
 package Linked_List;
 
-import java.util.*;
+//import java.util.*;
 
-public class StartingPointofLoopInLL  {
+/*public class StartingPointofLoopInLL  {
     public ListNode detectCycle(ListNode head) {
         HashSet<ListNode> set = new HashSet<>();
         ListNode temp = head;
@@ -18,6 +18,35 @@ public class StartingPointofLoopInLL  {
             }
             set.add(temp);
             temp = temp.next;
+        }
+        return null;
+    }
+}*/
+
+//optimal solution with time complexity of O(N) and space complexity O(1).
+
+public class StartingPointofLoopInLL {
+    public ListNode detectCycle(ListNode head) {
+        
+        if( head == null || head.next == null ){
+            return null;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if(slow == fast){
+                slow = head;
+                while(slow != fast){
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow;
+            }
         }
         return null;
     }
