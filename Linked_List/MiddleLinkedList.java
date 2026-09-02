@@ -6,7 +6,7 @@
 package Linked_List;
 import java.util.*;
 
-public class MiddleLinkedList {
+/*public class MiddleLinkedList {
 
     class ListNode {
     int val;
@@ -35,5 +35,29 @@ public class MiddleLinkedList {
         return temp;
     }
   }
- }
+ }*/
 
+//optimal solution with time complexity of O(N)(single pass) and space complexity O(1).
+class Solution {
+
+    class ListNode {
+    int val;
+    ListNode next;
+
+    ListNode(int val) {
+        this.val = val;
+        this.next = null;
+    }
+  }
+  
+    public ListNode middleNode(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while ( fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+}
