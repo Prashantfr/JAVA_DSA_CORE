@@ -5,7 +5,7 @@
 
 package Linked_List;
 
-class Solution {
+/*class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         
         // Step 1: Find length
@@ -31,6 +31,31 @@ class Solution {
         // Step 4: Delete node
         temp.next = temp.next.next;
         
+        return head;
+    }
+}*/
+
+//Optimal solution with time complexity of O(N)(single pass) and space complexity O(1).
+//Two Pointers
+class Solution {
+    public ListNode removeNthFromEnd(ListNode head, int n) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        for(int i=0; i<n; i++){
+            fast = fast.next;
+        }
+
+        if(fast==null){
+            return head.next;
+        }
+
+        while(fast.next != null){
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next;
         return head;
     }
 }
