@@ -5,7 +5,7 @@
 
 package Linked_List;
 
-class Solution {
+/*class Solution {
     public ListNode deleteMiddle(ListNode head) {
 
         if(head == null || head.next==null){
@@ -26,4 +26,27 @@ class Solution {
         temp.next = temp.next.next;
         return head;
     }
+}*/
+
+//Optimal solution with time complexity of O(N)(single pass) and space complexity O(1).
+class Solution {
+    public ListNode deleteMiddle(ListNode head) {
+
+        if(head == null || head.next == null){
+            return null;
+        }
+
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null;
+
+        while(fast != null && fast.next != null){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        prev.next = slow.next;
+        return head;
+    }
 }
+
