@@ -4,7 +4,7 @@
 //brute force solution with time complexity of O(N) and space complexity O(N).
 
 package Linked_List;
-import java.util.*;
+/*import java.util.*;
 
 class Solution {
     public ListNode oddEvenList(ListNode head) {
@@ -44,4 +44,27 @@ class Solution {
             }
         return dummy.next;
     }
+}*/
+
+//Optimal solution with time complexity of O(N) and space complexity O(N).
+class Solution {
+    public ListNode oddEvenList(ListNode head) {
+        if(head == null){
+            return null;
+        }
+
+        ListNode odd = head;
+        ListNode even = head.next;
+        ListNode evenHead = even;
+
+        while(even != null && even.next != null){
+            odd.next = even.next;
+            odd = odd.next;
+
+            even.next = odd.next;
+            even = even.next;
+            }
+        odd.next = evenHead;
+        return head;
+     }
 }
