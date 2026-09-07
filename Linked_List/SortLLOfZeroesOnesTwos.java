@@ -2,6 +2,7 @@
 //problem name : Sort a Linked List of 0's 1's and 2's
 
 //Solution with time complexity of O(N) and space complexity O(1).
+//Dutchflag pattern
 
 package Linked_List;
 
