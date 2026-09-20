@@ -1,0 +1,20 @@
+//problem link : https://leetcode.com/problems/search-in-a-binary-search-tree/description/
+//problem name : Search in Binary Search Tree. 
+
+//Solution with time complexity of O(n) and space complexity O(h).
+
+package Binary_Search_Tree;
+
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+
+        if(root == null || root.val == val) return root;
+
+        if(val < root.val){
+            return searchBST(root.left , val);
+        }
+        else{
+            return searchBST(root.right , val);
+        }
+    }
+}
