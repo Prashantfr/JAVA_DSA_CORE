@@ -4,7 +4,7 @@
 //Recursive solution with time complexity of O(h) and space complexity O(n).
 
 package Binary_Search_Tree;
-class Solution {
+/*class Solution {
     public TreeNode insertIntoBST(TreeNode root, int val) {
         
         // base case: found position
@@ -18,6 +18,34 @@ class Solution {
             root.right = insertIntoBST(root.right, val);
         }
         
+        return root;
+    }
+}*/
+
+//Iterative solution with time complexity of O(h) and space complexity O(1).
+class Solution {
+    public TreeNode insertIntoBST(TreeNode root, int val) {
+
+        if(root == null) return new TreeNode(val);
+
+        TreeNode cur = root;
+
+        while(true){
+            if(cur.val <= val){
+                if(cur.right != null) cur = cur.right;
+                else{
+                    cur.right = new TreeNode(val);
+                    break;
+                }
+            }
+            else{
+                if(cur.left != null) cur = cur.left;
+                else{
+                    cur.left = new TreeNode(val);
+                    break;
+                }
+            }
+        }
         return root;
     }
 }
