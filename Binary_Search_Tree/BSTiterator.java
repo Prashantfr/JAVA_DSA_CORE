@@ -6,7 +6,7 @@
 package Binary_Search_Tree;
 import java.util.*;
 
-class BSTIterator {
+/*class BSTIterator {
     
     List<Integer> list = new ArrayList<>();
     int index = 0;
@@ -27,5 +27,35 @@ class BSTIterator {
     
     public boolean hasNext() {
         return index < list.size();
+    }
+}*/
+
+//Optimal solution with time complexity of Constructor → O(h) (only pushing left nodes), next() → O(1) , hasNext() → O(1) and space complexity of 0(h) (height of tree).
+class BSTIterator {
+
+    Stack<TreeNode> stack = new Stack<>();
+
+    public BSTIterator(TreeNode root) {
+        pushAllLeft(root);
+    }
+
+    private void pushAllLeft(TreeNode node){
+        while(node != null){
+            stack.push(node);
+            node = node.left;
+        }
+    }
+    
+    public int next() {
+        TreeNode curr = stack.pop();
+
+        if(curr.right != null){
+            pushAllLeft(curr.right);
+        }
+        return curr.val;
+    }
+    
+    public boolean hasNext() {
+        return !stack.isEmpty();
     }
 }
