@@ -1,7 +1,7 @@
 //problem link : https://leetcode.com/problems/subsets/description/
 //problem name : Subsets
 
-//Solution with time complexity of O(2^n * n) and Auxiliary space complexity is O(2ⁿ × n).
+//Solution with time complexity of O(2^n * n) and space complexity is O(2ⁿ × n).
 
 package Recursion;
 import java.util.*;
