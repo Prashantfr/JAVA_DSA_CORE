@@ -1,4 +1,4 @@
-//problem link : hhttps://takeuforward.org/practice/dsa/count-all-subsequences-with-sum-k
+//problem link : https://takeuforward.org/practice/dsa/count-all-subsequences-with-sum-k
 //problem name : Count all subsequences with sum K
 
 //Solution with time complexity of O(2^n) and space complexity is O(n).
