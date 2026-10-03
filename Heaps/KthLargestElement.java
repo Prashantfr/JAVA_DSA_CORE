@@ -7,7 +7,7 @@
 package Heaps;
 import java.util.*;
 
-class Solution {
+/*class Solution {
     public int findKthLargest(int[] nums, int k) {
 
        int n = nums.length;
@@ -16,5 +16,22 @@ class Solution {
 
        return nums[n-k];
        
+    }
+}*/
+
+//Optimal solution with time complexity of O(nlog k)  and space complexity O(k).
+class Solution {
+    public int findKthLargest(int[] nums, int k) {
+
+       PriorityQueue<Integer> pq = new PriorityQueue<>();
+
+       for(int i=0 ; i<nums.length ; i++){
+        pq.add(nums[i]);
+
+        if(pq.size() > k){
+            pq.poll();
+        }
+       }
+       return pq.peek();
     }
 }
