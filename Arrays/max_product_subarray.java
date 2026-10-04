@@ -1,4 +1,4 @@
-package Arrays;
+
 
 public class max_product_subarray {
     class Solution {
